@@ -146,6 +146,23 @@
 
 ]]></Source>
 			</Method>
+			<Method>
+				<Name>test_get_automap1dependency</Name>
+				<Source><![CDATA[
+    public void test_get_automap1dependency()
+    {
+        // Arrange
+        NDinject ioc = new NDinject();
+
+        // Act
+        var instance = ioc.get(classStr(tutorialNDinjectSampleConsumer)) as tutorialNDinjectSampleConsumer;
+
+        // Assert
+        this.assertNotNull(instance);
+    }
+
+]]></Source>
+			</Method>
 		</Methods>
 	</SourceCode>
 </AxClass>
