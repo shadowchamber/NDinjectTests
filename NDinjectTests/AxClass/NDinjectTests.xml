@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>NDinjectTests</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+[SysTestTarget(classStr(NDinject))]
+    public class NDinjectTests extends SysTestCase
+{
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>test_withBound_success</Name>
+				<Source><![CDATA[
+    public void test_withBound_success()
+    {
+        // Arrange
+        NDinject ioc = new NDinject();
+
+        // Act
+        ioc = ioc.withBound(classStr(tutorialINDinjectSampleService), classStr(tutorialNDinjectSampleService));
+
+        // Assert
+        var instance = ioc.get(classStr(tutorialINDinjectSampleService)) as tutorialINDinjectSampleService;
+        this.assertNotNull(instance);
+        var instance2 = ioc.get(classStr(tutorialINDinjectSampleService)) as tutorialINDinjectSampleService;
+        this.assertNotEqual(instance, instance2);
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>test_withBound_single</Name>
+				<Source><![CDATA[
+    public void test_withBound_single()
+    {
+        // Arrange
+        NDinject ioc = new NDinject();
+
+        // Act
+        ioc = ioc.withBound(classStr(tutorialINDinjectSampleService), classStr(tutorialNDinjectSampleService), true);
+
+        // Assert
+        var instance = ioc.get(classStr(tutorialINDinjectSampleService)) as tutorialINDinjectSampleService;
+        this.assertNotNull(instance);
+        var instance2 = ioc.get(classStr(tutorialINDinjectSampleService)) as tutorialINDinjectSampleService;
+        this.assertEquals(instance, instance2);
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>test_withSelfBound_success</Name>
+				<Source><![CDATA[
+    public void test_withSelfBound_success()
+    {
+        // Arrange
+        NDinject ioc = new NDinject();
+
+        // Act
+        ioc = ioc.withSelfBound(classStr(tutorialNDinjectSampleService));
+
+        // Assert
+        var instance = ioc.get(classStr(tutorialNDinjectSampleService)) as tutorialNDinjectSampleService;
+        this.assertNotNull(instance);
+        var instance2 = ioc.get(classStr(tutorialNDinjectSampleService)) as tutorialNDinjectSampleService;
+        this.assertNotEqual(instance, instance2);
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>test_withSelfBound_single</Name>
+				<Source><![CDATA[
+    public void test_withSelfBound_single()
+    {
+        // Arrange
+        NDinject ioc = new NDinject();
+
+        // Act
+        ioc = ioc.withSelfBound(classStr(tutorialNDinjectSampleService), true);
+
+        // Assert
+        var instance = ioc.get(classStr(tutorialNDinjectSampleService)) as tutorialNDinjectSampleService;
+        this.assertNotNull(instance);
+        var instance2 = ioc.get(classStr(tutorialNDinjectSampleService)) as tutorialNDinjectSampleService;
+        this.assertEquals(instance, instance2);
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>test_bind_success</Name>
+				<Source><![CDATA[
+    public void test_bind_success()
+    {
+        // Arrange
+        NDinject ioc = new NDinject();
+
+        // Act
+        ioc.bind(classStr(tutorialINDinjectSampleService), classStr(tutorialNDinjectSampleService));
+
+        // Assert
+        var instance = ioc.get(classStr(tutorialINDinjectSampleService)) as tutorialINDinjectSampleService;
+        this.assertNotNull(instance);
+        var instance2 = ioc.get(classStr(tutorialINDinjectSampleService)) as tutorialINDinjectSampleService;
+        this.assertNotEqual(instance, instance2);
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>test_bind_single</Name>
+				<Source><![CDATA[
+    public void test_bind_single()
+    {
+        // Arrange
+        NDinject ioc = new NDinject();
+
+        // Act
+        ioc.bind(classStr(tutorialINDinjectSampleService), classStr(tutorialNDinjectSampleService), true);
+
+        // Assert
+        var instance = ioc.get(classStr(tutorialINDinjectSampleService)) as tutorialINDinjectSampleService;
+        this.assertNotNull(instance);
+        var instance2 = ioc.get(classStr(tutorialINDinjectSampleService)) as tutorialINDinjectSampleService;
+        this.assertEquals(instance, instance2);
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>test_get_automap</Name>
+				<Source><![CDATA[
+    public void test_get_automap()
+    {
+        // Arrange
+        NDinject ioc = new NDinject();
+
+        // Act
+        var instance = ioc.get(classStr(tutorialINDinjectSampleService)) as tutorialINDinjectSampleService;
+
+        // Assert
+        this.assertNotNull(instance);
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

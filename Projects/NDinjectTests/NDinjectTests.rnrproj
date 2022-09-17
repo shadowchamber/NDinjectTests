@@ -11,7 +11,7 @@
     <GenerateCrossReferences>True</GenerateCrossReferences>
     <RunAppCheckerRules>False</RunAppCheckerRules>
     <LogAppcheckerDiagsAsErrors>False</LogAppcheckerDiagsAsErrors>
-    <ProjectGuid>{18ff67d2-4dd9-4458-8fc1-198492be81b4}</ProjectGuid>
+    <ProjectGuid>{162bd65e-b4ea-496e-b46a-d33ffb36a004}</ProjectGuid>
     <Name>Dinject</Name>
     <RootNamespace>Dinject</RootNamespace>
     <StartupType>Class</StartupType>
@@ -31,6 +31,16 @@
     <DebugSymbols>true</DebugSymbols>
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Classes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AxClass\NDinjectTests">
+      <SubType>Content</SubType>
+      <Name>NDinjectTests</Name>
+      <Link>Classes\NDinjectTests</Link>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.Common.targets" />
   <Import Project="$(BuildTasksDirectory)\Microsoft.Dynamics.Framework.Tools.BuildTasks.targets" />
 </Project>
